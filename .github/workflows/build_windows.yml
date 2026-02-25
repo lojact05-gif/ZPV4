@@ -6,6 +6,7 @@ on:
     paths:
       - "tools/zaldo_printer/**"
       - "zaldo_printer/**"
+      - "/**"
       - ".github/workflows/build-zaldo-printer.yml"
 
 jobs:
@@ -27,7 +28,7 @@ jobs:
             Select-Object -First 1
 
           if (-not $target) {
-            Write-Host "No build.ps1 found under any 'zaldo_printer/scripts' path."
+            Write-Host "No build.ps1 found under any '/scripts' path."
             Write-Host "Top-level repository content:"
             Get-ChildItem -Force | Select-Object Name, Mode
             throw "Missing printer project files in repository checkout."
